@@ -15,15 +15,15 @@ const profileController = {
     getProfile: function (req, res) {
 
         // query where `idNum` is equal to URL parameter `idNum`
-        var query = { idNum: req.params.idNum };
+        var query = { username: req.params.username };
 
         // fields to be returned
-        var projection = 'fName lName idNum';
+        var projection = 'fName lName username';
 
         var details = {};
 
         // checks if a user is logged-in by checking the session data
-        if (req.session.idNum) {
+        if (req.session.username) {
 
             /*
                 sets `details.flag` to true
@@ -38,7 +38,7 @@ const profileController = {
             */
             details.flag = true;
             details.name = req.session.name;
-            details.uidNum = req.session.idNum;
+            details.username = req.session.username;
         }
 
         // else if a user is not yet logged-in
@@ -68,7 +68,7 @@ const profileController = {
             if (result != null) {
                 details.fName = result.fName;
                 details.lName = result.lName;
-                details.idNum = result.idNum;
+                details.username = result.username;
 
                 // render `../views/profile.hbs`
                 res.render('profile', details);
