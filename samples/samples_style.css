@@ -1,0 +1,47 @@
+a:link {
+    text-decoration: none;}
+   a:hover {
+    text-decoration: underline;}
+   .dropdown-item:hover { 
+     background-color: rgb(247, 222, 85); }
+   .rounded{
+     display: block;
+     margin-left: 250px;
+     margin-right: 20px;
+     width: 30%;
+   }
+   body{
+     background-color: rgba(253, 253, 245, 0.897);
+   }
+   h1{
+     font-size: 45px;
+     font-family: Georgia;
+     line-height:1.35em;}
+   p{
+     font-size: 22px;
+     font-family: Segoe UI;
+     margin-left: 40px;
+     margin-right: 40px;
+     text-align: justify;
+     text-justify: auto;}
+    b{
+      font-size: 28px;
+    }
+   .sub{
+     font-size: 20px
+   }
+   #comment{
+    margin-left: 85px;
+    resize: vertical;
+    width:700px; 
+    height:50px; 
+    overflow:auto;
+   }
+   #blog{
+    background-color: rgba(217, 245, 197, 0.863)}
+
+   #pic-2{
+    margin: auto;
+    width: 800px;
+    height: 700px;
+  }

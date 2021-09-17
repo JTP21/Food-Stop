@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Home Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link href="samples_style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffff66">
+    <div class="container-fluid">
+      <a class="navbar-brand ms-5 fs-4" href="../index.html">Food Stop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active ms-5 fs-5" aria-current="page" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle ms-5 fs-5" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              @ArturoS11
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item btn-outline-warning" href="../profile/viewprofile.html">View Profile</a></li>
+              <li><a class="dropdown-item btn-outline-warning" href="../profile/viewposts.html">View Your Posts</a></li>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item btn-outline-warning" href="#">Logout</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle ms-5 fs-5" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Guest(Demo)
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <button class="dropdown-item btn-outline-warning" type="button" data-bs-toggle="modal"
+                data-bs-target="#regmodal">Register</button>
+              <button class="dropdown-item btn-outline-warning" type="button" data-bs-toggle="modal"
+                data-bs-target="#loginmodal">Login</button>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-success" type="submit">Search</button>
+        </form>
+      </div>
+
+      <div class="modal fade" id="loginmodal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modal-title">Login</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group mb-3">
+                  <label for="validationServer01">Email address</label>
+                  <input type="email" class="form-control" id="validationDefault01" aria-describedby="emailHelp"
+                    placeholder="Enter email" required>
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword6">Password</label>
+                  <input type="password" class="form-control" id="validationDefault01" placeholder="Password" required>
+                </div>
+                <div class="text-center">
+                  <button class="btn btn-outline-dark mt-4" type="submit">LOGIN</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="regmodal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modal-title">Register</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form onsubmit="return Validate()">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                  </div>
+                  <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username"
+                    aria-label="Username" aria-describedby="basic-addon1" required>
+                </div>
+                <div class="form-group mb-3">
+                  <label for="message-text" class="col-form-label">About Me</label>
+                  <textarea type="text" class="form-control" id="message-text"
+                    placeholder="Write A Short Description About Yourself" required></textarea>
+                </div>
+                <div class="form-group mb-3">
+                  <label for="validationServer01">Email address</label>
+                  <input type="email" class="form-control" id="validationDefault01" aria-describedby="emailHelp"
+                    placeholder="Enter email" required>
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+                </div>
+                <div class="form-group mb-3">
+                  <label for="inputPassword6">Password</label>
+                  <input type="password" class="form-control" id="p1" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword6">Confirm Password</label>
+                  <input type="password" class="form-control" id="p2" placeholder="Confirm Password" required>
+                </div>
+                <div class="text-center">
+                  <button class="btn btn-outline-dark mt-4" type="submit">REGISTER</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </nav><br><br>
+
+  <div class="paragraphs">
+    <div class="row d-flex">
+      <div class="text-left">
+        <div class="file-field mb-4">
+          <img src="../assets/salad.jpg" class="rounded" style="float:left">
+        </div>
+        <h1>Cashew Crunch Salad <br> with Sesame Dressing</h1><br>
+        <p class="sub">
+          This Cashew Crunch Salad is loaded up with crunchy veg, <br>
+          chow mein noodles, edamame, and roasted cashews and<br>
+          it’ll make you ACTUALLY WANT TO EAT A SALAD. And <br>
+          the sesame dressing – OMG!
+        </p><br>
+        <label class="btn btn-sm btn-outline-success">
+          <i class="bi bi-hand-thumbs-up-fill"></i>
+        </label>
+        <label class="btn btn-sm btn-outline-danger">
+          <i class="bi bi-hand-thumbs-down-fill"></i>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-10 mt-5 mb-5">
+        <div class="row z-depth-3 shadow">
+          <div class="modal-body" id="blog">
+            <p><b><br>The salad that checks all the boxes</b><br><br>
+              This salad has all the taste we could want in a salad. Everything I like to eat are present
+              in this collaboration of vegetables, fruits, and dressings.<br><br>
+
+              <b>What is the secret behind this sesame dressing</b><br><br>
+              This gullible dressing consists of many ingredients that sums up its deliciousness. The
+              oil-and-vinegar dressing that you mix up, sweetened up with some sugar, seasoned with
+              sesame oil, that can be delightly added with Greek yogurt or mayo. I don’t know,
+              but this vinaigrette-drenched salad isn’t going to keep me full. I need some more
+              creaminess in the salads, so I just took a delicious dressing and made it more creamier.<br><br>
+
+              <b>Everything you want can be followed</b><br><br>
+              You can make this salad your own way. This is one of the things I like about this salad
+              because you can put any combination you want. For those vegetarians, you can leave
+              out the creaminess. People who like to eat gluten-free kinds of food, can not add the
+              chow mein noodles that has been the factor of its crunchiness. For protein-enthusiasts,
+              you can add any meat with it such as chicken or pork. Maybe you can also add tofu? I
+              don't know but you can make it something you can serve for dinner also.<br><br>
+
+              If you are making this, you must need to chop and prep all the veggies in advance. You
+              also need to even mix them together. Then you can do the mixing of it in the chow
+              mein, cashews, and dressing until just before serving.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function Validate() {
+      var password = document.getElementById("p1");
+      var confirm = document.getElementById("p2");
+      var value = true;
+
+      if (password.value != confirm.value) {
+        confirm.style.border = "1px solid red";
+        value = false;
+      }
+
+      return value;
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

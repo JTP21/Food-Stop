@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Home Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link href="samples_style.css" rel="stylesheet" type="text/css" />
+  <style>
+    a:link {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .dropdown-item:hover {
+      background-color: rgb(247, 222, 85);
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffff66">
+    <div class="container-fluid">
+      <a class="navbar-brand ms-5 fs-4" href="../index.html">Food Stop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active ms-5 fs-5" aria-current="page" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle ms-5 fs-5" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              @ArturoS11
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item btn-outline-warning" href="../profile/viewprofile.html">View Profile</a></li>
+              <li><a class="dropdown-item btn-outline-warning" href="../profile/viewposts.html">View Your Posts</a></li>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item btn-outline-warning" href="#">Logout</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle ms-5 fs-5" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Guest(Demo)
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <button class="dropdown-item btn-outline-warning" type="button" data-bs-toggle="modal"
+                data-bs-target="#regmodal">Register</button>
+              <button class="dropdown-item btn-outline-warning" type="button" data-bs-toggle="modal"
+                data-bs-target="#loginmodal">Login</button>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-success" type="submit">Search</button>
+        </form>
+      </div>
+
+      <div class="modal fade" id="loginmodal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modal-title">Login</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group mb-3">
+                  <label for="validationServer01">Email address</label>
+                  <input type="email" class="form-control" id="validationDefault01" aria-describedby="emailHelp"
+                    placeholder="Enter email" required>
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword6">Password</label>
+                  <input type="password" class="form-control" id="validationDefault01" placeholder="Password" required>
+                </div>
+                <div class="text-center">
+                  <button class="btn btn-outline-dark mt-4" type="submit">LOGIN</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="regmodal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modal-title">Register</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form onsubmit="return Validate()">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                  </div>
+                  <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username"
+                    aria-label="Username" aria-describedby="basic-addon1" required>
+                </div>
+                <div class="form-group mb-3">
+                  <label for="message-text" class="col-form-label">About Me</label>
+                  <textarea type="text" class="form-control" id="message-text"
+                    placeholder="Write A Short Description About Yourself" required></textarea>
+                </div>
+                <div class="form-group mb-3">
+                  <label for="validationServer01">Email address</label>
+                  <input type="email" class="form-control" id="validationDefault01" aria-describedby="emailHelp"
+                    placeholder="Enter email" required>
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+                </div>
+                <div class="form-group mb-3">
+                  <label for="inputPassword6">Password</label>
+                  <input type="password" class="form-control" id="p1" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword6">Confirm Password</label>
+                  <input type="password" class="form-control" id="p2" placeholder="Confirm Password" required>
+                </div>
+                <div class="text-center">
+                  <button class="btn btn-outline-dark mt-4" type="submit">REGISTER</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    </div>
+  </nav><br><br>
+
+  <div class="paragraphs">
+    <div class="row d-flex">
+      <div class="text-left">
+        <div class="file-field mb-4">
+          <img src="../assets/salmon.jpg" class="rounded" style="float:left">
+        </div>
+        <h1>Harissa Chickpeas <br> with Whipped Feta</h1><br>
+        <p class="sub">
+          Harissa Chickpeas with Whipped Feta! Perfectly<br>
+          spicy/saucy/tomato-y chickpeas smothered in <br>
+          creamy, garlicky whipped feta and served with<br>
+          naan, lemons, and cucumbers. Your next <br>
+          weeknight wonder!
+        </p>
+        <label class="btn btn-sm btn-outline-success">
+          <i class="bi bi-hand-thumbs-up-fill"></i>
+        </label>
+        <label class="btn btn-sm btn-outline-danger">
+          <i class="bi bi-hand-thumbs-down-fill"></i>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-10 mt-5 mb-5">
+        <div class="row z-depth-3 shadow">
+          <div class="modal-body" id="blog">
+            <p><b><br>A little burst of sweet, This was soooooooo Good</b><br><br>
+              Let me serve you up some spicy, saucy, garlicky smashed chickpeas over
+              a piece of soft flatbread with a magic of whipped feta and a crunchy
+              little waterfall of cucumbers over the top.<br><br>
+
+              <b>How to make this delicious meal</b><br><br>
+              All you need for the chickpeas are: harissa paste, garlic,
+              canned crushed tomatoes, olive oil, canned chickpeas. You must first
+              lightly smash the chickpeas. Use a potato masher to give them just a few good
+              smooshes so that the texture will be into something more sticky and saucy.
+              This meal is meal-prep friendly and can be served with flatbread, rice,
+              roasted vegetables, and more. Then you can already add the WHIPPED FETA,
+              which is something that adds up to the deliciousness of this flavorful entree.<br><br>
+
+              <b>Options for more sauce</b><br><br>
+              For emergencies! you can use a plain yogurt as the creamy element. It will save
+              the time and the dishes from the whipped feta. However, if you have so many time
+              to prepare this, you can mix feta into something of a yummy sauce. You have so many
+              options to choose from on what combination do you want. Well, as long as its yummy
+              or if the flavor compliments each one.<br><br>
+
+              The mixture of these obtained good reviews for those I served them to. Chickpeas has
+              the right amount of spicy, that even kids can enjoy it also. However, the kids said
+              that they enjoyed the cucumbers and the whipped feta more. The good thing with this
+              entree is that you can also mix it with leftovers, still making something into a
+              flavorful experience while dining.<br><br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    function Validate() {
+      var password = document.getElementById("p1");
+      var confirm = document.getElementById("p2");
+      var value = true;
+
+      if (password.value != confirm.value) {
+        confirm.style.border = "1px solid red";
+        value = false;
+      }
+
+      return value;
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

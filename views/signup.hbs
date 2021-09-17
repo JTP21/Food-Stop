@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-image: url("../assets/cover.png");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            color: #018707;
+        }
+
+        #table {
+            background-color: rgba(247, 223, 85, 0.842);
+            color: black
+        }
+    </style>
+</head>
+
+<body>
+    {{> header flag=flag}}
+    <div class="container">
+        <h1 class="display-10 mt-5 text-center fw-bold">Welcome to FOOD STOP!</h1>
+    </div>
+
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-10 mt-5 mb-5">
+                <div class="row z-depth-3 shadow">
+                    <div class="modal-body" id="table">
+                        <h1 class="display-5 text-center fw-bold">REGISTER</h5>
+                            <form action="/submit-account" method="post">
+                                <div class="form-group mb-3">
+                                    <label for="message-text" class="col-form-label">First Name</label>
+                                    <textarea type="text" class="form-control" name="fname"
+                                        placeholder="Let other people know you" required></textarea>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="message-text" class="col-form-label">Last Name</label>
+                                    <textarea type="text" class="form-control" name="lname"
+                                        placeholder="Let other people know you" required></textarea>
+                                </div>
+                                <label for="message-text" class="col-form-label">Username</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">@</span>
+                                    </div>
+                                    <input type="text" class="form-control" name="username" placeholder="Username"
+                                        aria-label="Username" aria-describedby="basic-addon1" required>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="inputPassword6">Password</label>
+                                    <input type="password" class="form-control" name="password" placeholder="Password"
+                                        required>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-outline-dark mt-4" value="Submit"
+                                        id="submit">REGISTER</button>
+                                </div>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
