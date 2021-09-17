@@ -19,11 +19,11 @@ const successController = {
         var details = {
             fName: req.query.fName,
             lName: req.query.lName,
-            idNum: req.query.idNum
+            username: req.query.username
         };
 
         // checks if a user is logged-in by checking the session data
-        if (req.session.idNum) {
+        if (req.session.username) {
 
             /*
                 sets `details.flag` to true
@@ -38,7 +38,7 @@ const successController = {
             */
             details.flag = true;
             details.name = req.session.name;
-            details.uidNum = req.session.idNum;
+            details.username = req.session.username;
         }
 
         // else if a user is not yet logged-in
