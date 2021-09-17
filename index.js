@@ -27,7 +27,7 @@ app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
 
 app.use(express.static('public'))
-
+app.use(express.static('assets'))
 
 app.get('/views/signup', function (req, res) {
     res.sendFile(path.join(__dirname + './views/signup.html'));
