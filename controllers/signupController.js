@@ -80,7 +80,7 @@ const signupController = {
             var details = {};
 
             // checks if a user is logged-in by checking the session data
-            if (req.session.idNum) {
+            if (req.session.username) {
 
                 /*
                     sets `details.flag` to true
@@ -95,7 +95,7 @@ const signupController = {
                 */
                 details.flag = true;
                 details.name = req.session.name;
-                details.uidNum = req.session.idNum;
+                details.username = req.session.username;
             }
 
             // else if a user is not yet logged-in
@@ -134,7 +134,7 @@ const signupController = {
             */
             var fName = req.body.fName;
             var lName = req.body.lName;
-            var idNum = req.body.idNum;
+            var username = req.body.username;
             var pw = req.body.pw;
 
             /*
@@ -148,7 +148,7 @@ const signupController = {
                 var user = {
                     fName: fName,
                     lName: lName,
-                    idNum: idNum,
+                    username: username,
                     pw: hash
                 }
 
@@ -167,7 +167,7 @@ const signupController = {
                             which calls getSuccess() method
                             defined in `./successController.js`
                         */
-                        res.redirect('/success?fName=' + fName + '&lName=' + lName + '&idNum=' + idNum);
+                        res.redirect('/success?fName=' + fName + '&lName=' + lName + '&username=' + username);
                     }
                 });
             });
@@ -186,7 +186,7 @@ const signupController = {
             Example url: `http://localhost/getCheckID?idNum=11312345`
             To retrieve the value of parameter `idNum`: `req.query.idNum`
         */
-        var idNum = req.query.idNum;
+        var username = req.query.username;
 
         /*
             calls the function findOne()
@@ -195,7 +195,7 @@ const signupController = {
             sends an empty string to the user if there are no match
             otherwise, sends an object containing the `idNum`
         */
-        db.findOne(User, { idNum: idNum }, 'idNum', function (result) {
+        db.findOne(User, { username: username }, 'username', function (result) {
             res.send(result);
         });
     }
