@@ -36,51 +36,51 @@ const loginController = {
         var username = req.body.username;
         var pw = req.body.password;
 
-        var result = await Account.findOne({username, password: pw}).exec()
+        var result = await Account.findOne({ username, password: pw }).exec()
 
         // console.log(`query result: ${result} | ${result.username}`)
         // if a user with `username` equal to `username` and `password` equal to `password` exists
         if (result) {
-                console.log(`Result: ${result}`)
-                var account = {
-                    fName: result.fName,
-                    lName: result.lName,
-                    username: result.username,
-                    password: result.password
-                }
-
-                var details = {
-                    flag: true,
-                    account
-                }
-
-                // insert session here
-
-                
-                res.redirect('/');
+            console.log(`Result: ${result}`)
+            var account = {
+                fname: result.fname,
+                lname: result.lname,
+                username: result.username,
+                password: result.password
             }
 
-            // else account does not exist
-            else {
-
-                /*
-                    sets `details.flag` to false
-                    to hide the profile and logout tabs in the nav bar
-                */
-                
-                var details = {
-                    flag: false,
-                    error: `ID Number and/or Password is incorrect.`
-                };
-
-                /*
-                    render `../views/login.hbs`
-                    display the errors
-                */
-                res.render('login', details);
+            var details = {
+                flag: true,
+                username: result.username
             }
-        
-    
+
+            // set session
+            req.session.username = account.username
+
+            res.redirect('/');
+        }
+
+        // else account does not exist
+        else {
+
+            /*
+                sets `details.flag` to false
+                to hide the profile and logout tabs in the nav bar
+            */
+
+            var details = {
+                flag: false,
+                error: `ID Number and/or Password is incorrect.`
+            };
+
+            /*
+                render `../views/login.hbs`
+                display the errors
+            */
+            res.render('login', details);
+        }
+
+
     }
 }
 

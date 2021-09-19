@@ -2,7 +2,12 @@ const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/FoodStopDB')
 
 const express = require('express');
-const app = new express();
+
+const session = require(`express-session`);
+
+const MongoStore = require(`connect-mongo`);
+
+const app = express();
 const hbs = require('hbs');
 
 
@@ -21,6 +26,17 @@ const fileUpload = require('express-fileupload')
 const path = require('path')
 app.use(fileUpload())
 
+
+
+// Setup express-session
+app.use(
+    session({
+        secret: 'ccapdev-session',
+        resave: false,
+        saveUninitialized: false,
+        store: MongoStore.create({ mongoUrl: 'mongodb://localhost/FoodStopDB' })
+    })
+);
 
 app.set('view engine', 'hbs');
 // sets `/views/partials` as folder containing partial hbs files
@@ -54,11 +70,22 @@ app.post('/submit-post', function (req, res) {
     })
 });
 
-app.post('/submit-account', function (req, res) {
-    Account.create(req.body, (error, post) => {
-        console.log(req.body)
-        res.redirect('/login')
-    })
+app.post('/submit-account', async function (req, res) {
+    // Check if username already exists
+    console.log(req.body)
+
+    var result = Account.findOne({ username: req.body.username }).exec()
+
+    // Username exists
+    if (result) {
+        console.log("Username already exists")
+    }
+    else {
+        Account.create(req.body, (error, post) => {
+            console.log(req.body)
+            res.redirect('/login')
+        })
+    }
 });
 
 app.get('/index', async (req, res) => {

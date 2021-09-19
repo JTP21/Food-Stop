@@ -19,8 +19,17 @@ const controller = {
         as defined in `../routes/routes.js`
     */
     getIndex: async function (req, res) {
+        // Default flag to false (no user logged in)
+        var details = {
+            flag: false
+        }
         // checks if a user is logged-in by checking the session data
-        var details = {}
+        if (req.session.username) {
+            details.flag = true
+            details.username = req.session.username
+        }
+
+
         // Obtain posts saved in DB
         var savedPosts = await Post.find()
         savedPosts.forEach(post => {

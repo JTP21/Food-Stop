@@ -89,7 +89,7 @@ app.post('/login', loginController.postLogIn);
     when a client sends an HTTP GET request for `/profile/:idNum`
     where `idNum` is a parameter
 */
-app.get('/profile/:idNum', profileController.getProfile);
+app.get('/profile/:username', profileController.getProfile);
 
 /*
     execute function getLogOut()

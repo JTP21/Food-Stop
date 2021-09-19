@@ -1,6 +1,6 @@
 // import module `database` from `../models/db.js`
 const db = require('../models/db.js');
-
+const Account = require(`../models/Account`)
 
 /*
     defines an object which contains functions executed as callback
@@ -12,9 +12,9 @@ const profileController = {
         executed when the client sends an HTTP GET request `/profile/:idNum`
         as defined in `../routes/routes.js`
     */
-    getProfile: function (req, res) {
+    getProfile: async function (req, res) {
 
-        // query where `idNum` is equal to URL parameter `idNum`
+        // query where `username` is equal to URL parameter `username`
         var query = { username: req.params.username };
 
         // fields to be returned
@@ -59,29 +59,32 @@ const profileController = {
             this called when the database returns a value
             saved in variable `result`
         */
-        db.findOne(User, query, projection, function (result) {
+        console.log(`Session username: ${req.session.username}`)
+        var result = await Account.findOne({ username: req.session.username })
 
-            /*
-                if the user exists in the database
-                render the profile page with their details
-            */
-            if (result != null) {
-                details.fName = result.fName;
-                details.lName = result.lName;
-                details.username = result.username;
+        /*
+            if the user exists in the database
+            render the profile page with their details
+        */
+        if (result != null) {
+            details.fname = result.fname;
+            details.lname = result.lname;
+            details.username = result.username;
 
-                // render `../views/profile.hbs`
-                res.render('profile', details);
-            }
-            /*
-                if the user does not exist in the database
-                render the error page
-            */
-            else {
-                // render `../views/error.hbs`
-                res.render('error', details);
-            }
-        });
+            console.log(`fName: ${result.fname}`)
+            console.log(`lName: ${result.lname}`)
+            console.log(`Found one: ${result.username}`)
+            // render `../views/profile.hbs`
+            res.render('profile', details);
+        }
+        /*
+            if the user does not exist in the database
+            render the error page
+        */
+        else {
+            // render `../views/error.hbs`
+            res.render('error', details);
+        }
     }
 }
 
