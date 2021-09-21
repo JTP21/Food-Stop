@@ -6,41 +6,29 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active ms-5 fs-5" aria-current="page" href="/">Home</a>
                 </li>
 
-                <li class="nav-item dropdown">
-                    {{#if flag}}
-                    <a class="nav-link dropdown-toggle ms-5 fs-5" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        @{{username}}
-                    </a>
-                    {{/if}}
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item btn-outline-warning" href="/profile/{{username}}">View
-                                Profile</a></li>
+                {{#if flag}}
+                <li class="nav-item">
+                    <a class="nav-link active ms-5 fs-5" href="/profile/{{username}}">@{{username}}</a>
                 </li>
-                <li>
-                    <hr class="dropdown-divider">
+                <li class="nav-item">
+                    <a class="nav-link active ms-5 fs-5" href="/logout">Logout</a>
                 </li>
-                <li><a class="dropdown-item btn-outline-warning" href="/logout">Logout</a></li>
-            </ul>
+                {{/if}}
 
-            <li class="nav-item dropdown">
                 {{#unless flag}}
-                <a class="nav-link dropdown-toggle ms-5 fs-5" href="#" id="navbarDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    Guest
-                </a>
+                <li class="nav-item">
+                    <a class="nav-link active ms-5 fs-5" href="/register">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active ms-5 fs-5" href="/login">Login</a>
+                </li>
                 {{/unless}}
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/register">Register</a>
-                    <a class="dropdown-item" href="/login">Login</a>
-                </ul>
-            </li>
+            </ul>
         </div>
     </div>
 </nav>
