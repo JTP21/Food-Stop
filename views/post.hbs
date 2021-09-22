@@ -18,8 +18,7 @@
     }
     h1{
         font-size: 40px;
-        margin-left: 10px;
-        margin-right: 100px
+        margin-right: 200px
         text-align: justify;
         text-justify: auto;
         font-family: Georgia;
@@ -48,29 +47,29 @@
     {{> header flag=flag username=username}}
     <br><br>
     <div class="paragraphs">
-    <div class="row d-flex">
-      <div class="text-left">
-        <div class="file-field mb-4">
-          <img src="{{image}}" class="rounded" style="float:left">
+      <div class="row d-flex">
+        <div class="text-left">
+          <div class="file-field mb-4">
+            <img src="{{image}}" class="rounded" style="float:left">
+          </div>
+          <div class="container">
+            <div class="row d-flex justify-content-center">
+              <div class="col-md-15 mb-5">
+                <h1>{{title}}</h1>
+              </div>
+            </div>
         </div>
         <div class="container">
-        <div class="row d-flex justify-content-center">
-        <div class="col-md-15 mb-5">
-            <h1>{{title}}</h1><br>
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-15 mb-1">
+              <p class="sub">
+              {{description}}
+              </p><br>
+            </div>
+          </div>
         </div>
-        </div>
-        </div>
-        <div class="container">
-        <div class="row d-flex justify-content-center">
-        <div class="col-md-15 mb-1">
-        <p class="sub">
-          {{description}}
-        </p><br>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
+      </div>
+    </div>
 
   <div class="container">
     <div class="row d-flex justify-content-center">
