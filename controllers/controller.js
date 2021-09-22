@@ -1,36 +1,19 @@
 const Post = require(`../models/Post`)
-
-/*
-    defines an object which contains functions executed as callback
-    when a client requests for `index` paths in the server
-*/
 const controller = {
 
-    /*
-        executed when the client sends an HTTP GET request `/favicon.ico`
-        as defined in `../routes/routes.js`
-    */
     getFavicon: function (req, res) {
         res.status(204);
     },
 
-    /*
-        executed when the client sends an HTTP GET request `/`
-        as defined in `../routes/routes.js`
-    */
     getIndex: async function (req, res) {
-        // Default flag to false (no user logged in)
         var details = {
             flag: false
         }
-        // checks if a user is logged-in by checking the session data
         if (req.session.username) {
             details.flag = true
             details.username = req.session.username
         }
 
-
-        // Obtain posts saved in DB
         var savedPosts = await Post.find()
 
         details.post = savedPosts
@@ -39,8 +22,4 @@ const controller = {
     }
 }
 
-/*
-    exports the object `controller` (defined above)
-    when another script exports from this file
-*/
 module.exports = controller;
