@@ -76,12 +76,15 @@ app.get('/index', async (req, res) => {
 
 app.get(`/post/:title`, async (req, res) => {
     const post = await Post.findOne({ title: req.params.title }).exec()
-    console.log(`Req Title: ${req.params.title}`)
     console.log(`Post Title: ${post.title}`)
+    console.log(`Post Description: ${post.description}`)
+    console.log(`Post Body: ${post.body}`)
+    console.log(`Post Image: ${post.image}`)
     if (post.title != null) {
         var details = {
             title: post.title,
             description: post.description,
+	    body: post.body,
             image: post.image,
             flag: true,
             username: req.session.username
