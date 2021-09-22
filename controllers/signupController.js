@@ -65,6 +65,7 @@ const signupController = {
 
         var result = await Account.findOne({ username }).exec()
         res.send(result);
+	console.log(`Query result:${result}`)
     }
 
 }
