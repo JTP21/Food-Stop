@@ -41,7 +41,7 @@ const loginController = {
         // console.log(`query result: ${result} | ${result.username}`)
         // if a user with `username` equal to `username` and `password` equal to `password` exists
         if (result) {
-            console.log(`Result: ${result}`)
+            console.log(`Login Result: ${result}`)
             var account = {
                 fname: result.fname,
                 lname: result.lname,

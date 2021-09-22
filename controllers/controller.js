@@ -32,9 +32,6 @@ const controller = {
 
         // Obtain posts saved in DB
         var savedPosts = await Post.find()
-        savedPosts.forEach(post => {
-            console.log(post)
-        })
 
         details.post = savedPosts
 

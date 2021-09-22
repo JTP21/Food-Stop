@@ -75,22 +75,36 @@ app.post('/submit-account', async function (req, res) {
     console.log(req.body)
 
     var result = Account.findOne({ username: req.body.username }).exec()
-
-    // Username exists
-    if (result) {
-        console.log("Username already exists")
-    }
-    else {
-        Account.create(req.body, (error, post) => {
-            console.log(req.body)
-            res.redirect('/login')
-        })
-    }
+    Account.create(req.body, (error, post) => {
+        console.log(req.body)
+        res.redirect('/login')
+    })
 });
 
 app.get('/index', async (req, res) => {
     const posts = await Post.find({})
     res.render('index', { posts })
+})
+
+app.get(`/post/:title`, async (req, res) => {
+    const post = await Post.findOne({ title: req.params.title }).exec()
+    console.log(`Req Title: ${req.params.title}`)
+    console.log(`Post Title: ${post.title}`)
+    if (post.title != null) {
+        var details = {
+            title: post.title,
+            description: post.description,
+            image: post.image,
+            flag: true,
+            username: req.session.username
+        }
+
+        res.render(`post`, details);
+    }
+    else {
+
+    }
+
 })
 
 var server = app.listen(3000, function () {

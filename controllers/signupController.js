@@ -7,7 +7,7 @@ const saltRounds = 10;
 
 // import module `database` from `../models/db.js`
 const db = require('../models/db.js');
-
+const Account = require(`../models/Account`)
 
 
 /*
@@ -38,23 +38,23 @@ const signupController = {
                 in the profile tab of the nav bar
                 these values are rendered in `../views/partials/header.hbs`
             */
-           /*
-            details.flag = true;
-            details.name = req.session.name;
-            details.uidNum = req.session.idNum;
-        }
+        /*
+         details.flag = true;
+         details.name = req.session.name;
+         details.uidNum = req.session.idNum;
+     }
 
-        // else if a user is not yet logged-in
-        else
-            /*
-                sets `details.flag` to false
-                to hide the profile and logout tabs in the nav bar
-            */
-           /*
-            details.flag = false;
+     // else if a user is not yet logged-in
+     else
+         /*
+             sets `details.flag` to false
+             to hide the profile and logout tabs in the nav bar
+         */
+        /*
+         details.flag = false;
 
-        // render `../views/signup.hbs`
-        */
+     // render `../views/signup.hbs`
+     */
         //res.render('signup', details);
         res.render(`signup`);
     },
@@ -178,7 +178,7 @@ const signupController = {
         executed when the client sends an HTTP GET request `/getCheckID`
         as defined in `../routes/routes.js`
     */
-    getCheckID: function (req, res) {
+    getCheckUsername: async function (req, res) {
 
         /*
             when passing values using HTTP GET method
@@ -195,9 +195,14 @@ const signupController = {
             sends an empty string to the user if there are no match
             otherwise, sends an object containing the `idNum`
         */
+        var result = await Account.findOne({ username }).exec()
+        //console.log(`Register Result: ${result}`)
+        res.send(result);
+        /*
         db.findOne(User, { username: username }, 'username', function (result) {
             res.send(result);
         });
+        */
     }
 
 }

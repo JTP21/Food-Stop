@@ -53,11 +53,11 @@ app.get('/signup', signupController.getSignUp);
 app.post('/signup', signupController.postSignUp);
 
 /*
-    execute function getCheckID()
+    execute function getCheckUsername()
     defined in object `signupController` in `../controllers/signupController.js`
-    when a client sends an HTTP GET request for `/getCheckID`
+    when a client sends an HTTP GET request for `/getCheckUsername`
 */
-app.get('/getCheckID', signupController.getCheckID);
+app.get('/getCheckUsername', signupController.getCheckUsername);
 
 /*
     execute function getSuccess()
@@ -102,4 +102,6 @@ app.get('/logout', logoutController.getLogOut);
     exports the object `app` (defined above)
     when another script exports from this file
 */
+
+
 module.exports = app;
