@@ -5,9 +5,12 @@
   "main": "index.js",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "connect-mongo": "^4.6.0",
     "db": "^3.3.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "express-session": "^1.17.2",
     "express-validator": "^6.12.1",
     "handlebars": "^4.7.7",
     "handles": "^0.1.1",
