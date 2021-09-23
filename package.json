@@ -1,36 +1,32 @@
 {
-  "name": "ccapdev-mp",
+  "name": "food-stop",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "db": "^3.3.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.12.1",
+    "handlebars": "^4.7.7",
+    "handles": "^0.1.1",
+    "hbs": "^4.1.2",
+    "mongo": "^0.1.0",
+    "mongodb": "^4.1.2",
+    "mongoose": "^6.0.7"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JTP21/CCAPDEV-MP.git"
+    "url": "git+https://github.com/JTP21/Food-Stop.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JTP21/CCAPDEV-MP/issues"
+    "url": "https://github.com/JTP21/Food-Stop/issues"
   },
-  "homepage": "https://github.com/JTP21/CCAPDEV-MP#readme",
-	 "dependencies": {
-		"bcrypt": "^5.0.1",
-		"body-parser": "^1.19.0",
-		"connect-mongo": "^4.5.0",
-		"dotenv": "^10.0.0",
-		"express": "^4.17.1",
-		"express-fileupload": "^1.2.1",
-		"express-session": "^1.17.2",
-		"express-validator": "^6.12.1",
-		"handlebars": "^4.7.7",
-		"handles": "^0.1.1",
-		"hbs": "^4.1.2",
-		"mongo": "^0.1.0",
-		"mongoose": "^5.13.8",
-		"nodemon": "^2.0.12"
-  }
+  "homepage": "https://github.com/JTP21/Food-Stop#readme"
 }
-
